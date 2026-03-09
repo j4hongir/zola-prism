@@ -27,7 +27,6 @@ description = "Your site description"         # Meta description for SEO
 default_language = "en"                       # Site language code (en, ru, etc)
 
 compile_sass = true                           # Compile Sass to CSS
-build_search_index = true                     # Enable search functionality
 minify_html = true                            # Minify HTML output for performance
 
 # TAXONOMIES - Categories, tags, authors
@@ -45,9 +44,7 @@ external_links_no_follow = true               # Add rel="nofollow" to external l
 external_links_no_referrer = true             # Add rel="noreferrer" for privacy
 smart_punctuation = true                      # Convert -- to em-dash, etc
 
-# Syntax highlighting theme options:
-# github-dark, github-light, base16-ocean-dark, base16-ocean-light,
-# dracula, monokai, solarized-dark, solarized-light, etc.
+# Syntax highlighting, see https://github.com/getzola/giallo for options
 highlighting = { theme = "github-dark" }
 
 # THEME SETTINGS [extra]
@@ -84,7 +81,6 @@ show_reading_time = true                      # Display estimated reading time
 # "%b %d, %Y" = Jan 15, 2024
 # "%Y-%m-%d" = 2024-01-15
 # "%d.%m.%Y" = 15.01.2024
-date_format = "%b %d, %Y"
 
 # Comments
 comments = true                               # Enable/disable Giscus comments globally
@@ -92,7 +88,6 @@ comments = true                               # Enable/disable Giscus comments g
 # SEO & Meta
 keywords = "blog, tech, programming"          # Meta keywords (optional)
 banner = "static/banner.png"                  # OG:image for social media (optional)
-theme_color = "#1e3a8a"                       # Browser theme color (optional, default: #1e3a8a)
 
 # GISCUS COMMENTS - GitHub-based comments system
 [extra.giscus]
