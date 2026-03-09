@@ -584,36 +584,49 @@ footer
                 transform: translateY(-2px)
                 box-shadow: var(--shadow-subtle)
 
+
 .code-block-wrapper
     position: relative
     margin: var(--space-lg) 0
     
     pre
         margin: 0
+    
+    &:hover .copy-code-button,
+    &:focus-within .copy-code-button
+        opacity: 1
 
 .copy-code-button
     position: absolute
-    top: 0.5rem
-    right: 0.5rem
-    padding: 0.4rem
+    top: 0.4rem
+    right: 0.4rem
+    padding: 0.3rem 0.6rem
     +glass(hover)
-    border-radius: 4px
+    border-radius: var(--radius-sm)
     color: var(--text-secondary)
     cursor: pointer
-    +transition-fast(background, color)
+    +transition-fast(background, color, opacity)
     display: flex
     align-items: center
     justify-content: center
+    gap: 0.3rem
     z-index: 10
     +backdrop-blur('light')
     +focus-visible
-    min-width: 44px
-    min-height: 44px
+    opacity: 0
+    font-family: var(--font-mono)
+    font-size: 0.7rem
+    letter-spacing: 0.5px
+    white-space: nowrap
+    line-height: 1
+    min-height: 0
+    min-width: 0
     
     svg
-        width: 1rem
-        height: 1rem
+        width: 0.85rem
+        height: 0.85rem
         stroke: currentColor
+        flex-shrink: 0
         +transition-fast(stroke)
     
     &:hover
@@ -622,15 +635,18 @@ footer
     
     &.copied
         color: var(--text-primary)
+        opacity: 1
     
     &.error
         color: #ff6b6b
+        opacity: 1
 
 pre
     background: var(--glass-active)
     border: 1px solid var(--glass-border)
     border-radius: var(--radius-md)
     padding: var(--space-md)
+    padding-right: 4rem
     overflow-x: auto
     margin: var(--space-lg) 0
     white-space: pre
@@ -643,6 +659,8 @@ pre
         font-size: 0.9rem
         line-height: 1.6
         color: var(--text-primary)
+
+
 
 code
     background: var(--glass-hover)
@@ -872,6 +890,7 @@ img, video, iframe
     
     pre
         padding: 0.85rem
+        padding-right: 0.85rem
         margin: 0.85rem 0
         font-size: 0.8rem
         border-radius: 8px
@@ -886,14 +905,12 @@ img, video, iframe
         padding: 0.15rem 0.35rem
     
     .copy-code-button
-        padding: 0.35rem
-        min-width: 38px
-        min-height: 38px
-        
+        padding: 0.25rem 0.5rem
+        font-size: 0.65rem
         svg
-            width: 0.9rem
-            height: 0.9rem
-    
+            width: 0.75rem
+            height: 0.75rem
+
     blockquote
         padding-left: 0.65rem
         margin: 0.85rem 0

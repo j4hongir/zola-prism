@@ -57,7 +57,7 @@ strict = "0"
 reactions_enabled = "1"
 emit_metadata = "0"
 input_position = "bottom"
-theme = "catppuccin_frappe"
+theme = "transparent_light"
 lang = "en"
 
 [extra.sam_footer]
