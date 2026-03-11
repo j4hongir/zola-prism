@@ -5,21 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
-    <meta name="description" content="{{ config.description }}">
-    
+    <meta name="description" content="{% block meta_description %}{{ config.description }}{% endblock meta_description %}">
+
     <link rel="canonical" href="{{ current_url | default(value=config.base_url) }}">
-    
+
     <link rel="icon" type="image/x-icon" href="{{ get_url(path='favicon/favicon.ico') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path='favicon/favicon-16x16.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='favicon/favicon-32x32.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ get_url(path='favicon/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ get_url(path='favicon/site.webmanifest') }}">
-    
+
     <link rel="preload" href="{{ get_url(path='style.css') }}" as="style">
-    
+
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    
+
     {% if config.extra.analytics.google_analytics_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google_analytics_id }}"></script>
     <script>
@@ -36,27 +36,30 @@
     {% endif %}
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1e3a8a">
-    
-    <meta property="og:type" content="website">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
     <meta property="og:url" content="{{ current_url | default(value=config.base_url) }}">
     <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
-    <meta property="og:description" content="{{ config.description }}">
+    <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock og_description %}">
     <meta property="og:site_name" content="{{ config.title }}">
     {% if config.extra.banner %}
     <meta property="og:image" content="{{ get_url(path=config.extra.banner) }}">
     {% else %}
     <meta property="og:image" content="{{ config.base_url }}/favicon/android-chrome-512x512.png">
     {% endif %}
-    
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock twitter_title %}">
-    <meta name="twitter:description" content="{{ config.description }}">
+    <meta name="twitter:description" content="{% block twitter_description %}{{ config.description }}{% endblock twitter_description %}">
     {% if config.extra.banner %}
     <meta name="twitter:image" content="{{ get_url(path=config.extra.banner) }}">
     {% else %}
     <meta name="twitter:image" content="{{ config.base_url }}/favicon/android-chrome-512x512.png">
     {% endif %}
-    
+
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -75,7 +78,7 @@
       {% endif %}
     }
     </script>
-    
+
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ config.title }}" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,13 +109,13 @@
     <div class="wrap">
         <div id="splash">
             <h1 id="title">{{ config.title }}</h1>
-            
+
             {% if config.description %}
             <p class="site-description">
                 {{ config.description }}
             </p>
             {% endif %}
-            
+
             <div class="tile-grid">
                 {% if config.extra.sam_menu %}
                 {% for link in config.extra.sam_menu %}

@@ -1,9 +1,40 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
 
-{% block htmltitle %}
-{{ page.title }} - {{ config.title }}
-{% endblock htmltitle %}
+{% block htmltitle %}{{ page.title }} - {{ config.title }}{% endblock htmltitle %}
+
+{% block og_type %}article{% endblock og_type %}
+{% block og_title %}{{ page.title }}{% endblock og_title %}
+{% block og_description %}{{ page.description | default(value=page.summary | default(value=page.content) | striptags | truncate(length=160)) }}{% endblock og_description %}
+{% block meta_description %}{{ page.description | default(value=page.summary | default(value=page.content) | striptags | truncate(length=160)) }}{% endblock meta_description %}
+{% block twitter_title %}{{ page.title }}{% endblock twitter_title %}
+{% block twitter_description %}{{ page.description | default(value=page.summary | default(value=page.content) | striptags | truncate(length=160)) }}{% endblock twitter_description %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "url": "{{ page.permalink }}"
+  {% if page.date %}
+  ,"datePublished": "{{ page.date | date(format='%Y-%m-%dT%H:%M:%SZ') }}"
+  {% endif %}
+  {% if page.description %}
+  ,"description": "{{ page.description }}"
+  {% endif %}
+  {% if config.extra.author.name %}
+  ,"author": {
+    "@type": "Person",
+    "name": "{{ config.extra.author.name }}"
+    {% if config.extra.author.url %}
+    ,"url": "{{ config.extra.author.url }}"
+    {% endif %}
+  }
+  {% endif %}
+}
+</script>
+{% endblock head %}
 
 {% block content %}
 <div id="content">
