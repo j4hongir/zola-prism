@@ -5,10 +5,38 @@
 
 {% block og_type %}article{% endblock og_type %}
 {% block og_title %}{{ page.title }}{% endblock og_title %}
-{% block og_description %}{{ page.description | default(value=page.summary | default(value=page.content) | striptags | truncate(length=160)) }}{% endblock og_description %}
-{% block meta_description %}{{ page.description | default(value=page.summary | default(value=page.content) | striptags | truncate(length=160)) }}{% endblock meta_description %}
 {% block twitter_title %}{{ page.title }}{% endblock twitter_title %}
-{% block twitter_description %}{{ page.description | default(value=page.summary | default(value=page.content) | striptags | truncate(length=160)) }}{% endblock twitter_description %}
+
+
+{% block og_description %}
+  {%- if page.description -%}
+    {{ page.description }}
+  {%- elif page.summary -%}
+    {{ page.summary | striptags | truncate(length=160) }}
+  {%- else -%}
+    {{ page.content | striptags | truncate(length=160) }}
+  {%- endif -%}
+{% endblock og_description %}
+
+{% block meta_description %}
+  {%- if page.description -%}
+    {{ page.description }}
+  {%- elif page.summary -%}
+    {{ page.summary | striptags | truncate(length=160) }}
+  {%- else -%}
+    {{ page.content | striptags | truncate(length=160) }}
+  {%- endif -%}
+{% endblock meta_description %}
+
+{% block twitter_description %}
+  {%- if page.description -%}
+    {{ page.description }}
+  {%- elif page.summary -%}
+    {{ page.summary | striptags | truncate(length=160) }}
+  {%- else -%}
+    {{ page.content | striptags | truncate(length=160) }}
+  {%- endif -%}
+{% endblock twitter_description %}
 
 {% block head %}
 <script type="application/ld+json">
