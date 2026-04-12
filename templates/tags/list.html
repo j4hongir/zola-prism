@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block htmltitle %}
-Tags - {{ config.title }}
+tags - {{ config.title }}
 {% endblock htmltitle %}
 
 {% block content %}
 <div id="content">
     <div class="hero">
         <h1>All Tags</h1>
-        <p style="color: var(--text-muted); margin-top: 1rem;">Explore posts by topic</p>
+        <p style="color: var(--text-muted); margin-top: 1rem;">explore posts by topic</p>
     </div>
 
     {% if terms %}
@@ -22,7 +22,7 @@ Tags - {{ config.title }}
     </div>
     {% else %}
     <p style="text-align: center; color: var(--text-muted); margin-top: 3rem;">
-        No tags yet.
+        no tags yet
     </p>
     {% endif %}
 </div>

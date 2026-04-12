@@ -15,13 +15,13 @@
         <h1>{{ taxonomy.name | title }}</h1>
         <p style="color: var(--text-secondary); margin-top: 1rem;">
             {% if taxonomy.name == "tags" %}
-            All blog tags
+            all blog tags
             {% elif taxonomy.name == "categories" %}
-            Blog categories
+            blog categories
             {% elif taxonomy.name == "authors" %}
-            Blog authors
+            blog authors
             {% else %}
-            Browse by {{ taxonomy.name }}
+            browse by {{ taxonomy.name }}
             {% endif %}
         </p>
     </div>

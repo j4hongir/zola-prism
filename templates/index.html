@@ -37,7 +37,6 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1e3a8a">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
     <meta property="og:url" content="{{ current_url | default(value=config.base_url) }}">
     <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
@@ -49,7 +48,6 @@
     <meta property="og:image" content="{{ config.base_url }}/favicon/android-chrome-512x512.png">
     {% endif %}
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock twitter_title %}">
     <meta name="twitter:description" content="{% block twitter_description %}{{ config.description }}{% endblock twitter_description %}">
@@ -59,7 +57,6 @@
     <meta name="twitter:image" content="{{ config.base_url }}/favicon/android-chrome-512x512.png">
     {% endif %}
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -121,7 +118,7 @@
                 {% for link in config.extra.sam_menu %}
                 <a href="{{ link.link }}" class="tile">
                     <span class="tile-title">{{ link.text }}</span>
-                    <span class="tile-desc">Explore</span>
+                    <span class="tile-desc"></span>
                 </a>
                 {% endfor %}
                 {% else %}
@@ -130,7 +127,7 @@
                     {% set section = get_section(path=section_path) %}
                     <a href="{{ section.permalink }}" class="tile">
                         <span class="tile-title">{{ section.title }}</span>
-                        <span class="tile-desc">Explore</span>
+                        <span class="tile-desc"></span>
                     </a>
                 {% endfor %}
                 {% endif %}

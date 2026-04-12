@@ -3,16 +3,16 @@
 {% import "macros.html" as macros %}
 
 {% block htmltitle %}
-404 - Not found
+404 - not found
 {% endblock htmltitle %}
 
 {% block title %}
-Not found
+not found
 {% endblock title %}
 
 {% block content %}
 <p>
-    Oops, looks like this content is not available.
+    oops, looks like this content is not available.
     <br>
     <a href="{{ config.base_url }}">{{ config.extra.home | default(value="home") }}</a>
 </p>
