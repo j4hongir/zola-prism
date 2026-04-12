@@ -34,7 +34,7 @@ sam_menu = [
     { text = "github", link = "https://github.com/jahamars/zola-prism" },
     { text = "authors", link = "/authors" },
     { text = "tags", link = "/tags" },
-    { text = "Categories", link = "/categories" }
+    { text = "categories", link = "/categories" }
 ]
 
 sam_bottom_menu = true
