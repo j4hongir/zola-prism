@@ -24,7 +24,7 @@ highlighting = { theme = "github-dark" }
 [extra]
 home = "back"
 
-background_image = "https://raw.githubusercontent.com/Jahamars/zola-prism/refs/heads/main/static/bg3.jpg"
+background_image = "https://raw.githubusercontent.com/j4hongir/zola-prism/refs/heads/main/static/bg3.jpg"
 
 show_toc = true
 
@@ -48,7 +48,7 @@ comments = true
 
 [extra.giscus]
 enabled = true
-repo = "Jahamars/zola-prism"
+repo = "j4hongir/zola-prism"
 repo_id = "R_kgDORAdmkg"
 category = "Announcements"
 category_id = "DIC_kwDORAdmks4C120r"
